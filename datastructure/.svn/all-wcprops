@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/improved-sim-buchi/!svn/ver/431/sourcecode/ramsey/src/datastructure
+END
+HashSet.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/HashSet.java
+END
+State_Label.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/State_Label.java
+END
+MetagraphBV.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/MetagraphBV.java
+END
+Graph.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/improved-sim-buchi/!svn/ver/431/sourcecode/ramsey/src/datastructure/Graph.java
+END
+NewMetagraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/NewMetagraph.java
+END
+OneToOneMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/OneToOneMap.java
+END
+OneToOneTreeMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/OneToOneTreeMap.java
+END
+Arc.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/Arc.java
+END
+Metagraph.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/Metagraph.java
+END
+OneToOneHashMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/OneToOneHashMap.java
+END
+Pair.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/improved-sim-buchi/!svn/ver/422/sourcecode/ramsey/src/datastructure/Pair.java
+END
