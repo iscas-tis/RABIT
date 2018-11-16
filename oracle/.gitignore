@@ -1,0 +1,15 @@
+/AutomatonBuilder.class
+/AutomatonPrinter.class
+/AutomatonWord.class
+/EmptinessCheck.class
+/EqResult.class
+/IntPair.class
+/Membership.class
+/PathFinder$ComparatorFAState.class
+/PathFinder.class
+/PriorityQueue.class
+/ProductBuilder.class
+/RabitOracle$FairsimThread.class
+/RabitOracle.class
+/RabitOracleTest.class
+/TypeAutomaton.class
