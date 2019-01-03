@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class WordFinder {
 	private FiniteAutomaton fa;
@@ -51,27 +50,29 @@ public class WordFinder {
 
 	private void computeSuffix() {
 		this.runSuffix.add(this.f_1);
-		FAState v;
 		if (this.f_1 == this.f_2) {
+			// check whether it has self-loop
 			Iterator<String> labels = this.f_1.nextIt();
 			while (labels.hasNext()) {
-				String label = (String) labels.next();
+				String label = labels.next();
 				Set<FAState> v_prime = this.f_1.getNext(label);
-				for (Iterator<FAState> localIterator = v_prime.iterator(); localIterator.hasNext();) {
-					v = localIterator.next();
+				for (FAState v : v_prime) {
 					if (this.f_1.id == v.id) {
 						this.wordSuffix.add(label);
 						break;
 					}
 				}
-			}
-			if (!this.wordSuffix.isEmpty()) {
-				return;
+				// has self-loop
+				if (!this.wordSuffix.isEmpty()) {
+					return;
+				}
 			}
 		}
+		// no self-loop has been found
 		BitSet states = new BitSet(this.scc.size());
 		FAState t = null;
 		for (FAState s : this.scc) {
+			// states which should be visited
 			states.set(s.id);
 			if ((this.f_1 == this.f_2) && (this.f_1 != s) && (this.f_1.getNext().contains(s))) {
 				t = s;
@@ -93,6 +94,7 @@ public class WordFinder {
 		queue.add(s);
 		visited.set(s.id);
 		while( !queue.isEmpty()) {
+			// have reached state t
 			if (visited.get(t.id)) {
 				continue;
 			}
@@ -116,8 +118,8 @@ public class WordFinder {
 		FAState cur = t;
 		while (cur != s) {
 			run.addFirst(cur);
-			word.addFirst((String) predElems.get(cur));
-			cur = (FAState) preds.get(cur);
+			word.addFirst(predElems.get(cur));
+			cur = preds.get(cur);
 		}
 		List<String> w;
 		List<FAState> r;
