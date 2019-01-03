@@ -177,6 +177,7 @@ public class IntersectionCheck {
 		c.F.add(c1);
 
 		c.addTransition(c0, c1, "b");
+		c.addTransition(c0, c1, "a");
 		c.addTransition(c1, c2, "a");
 		c.addTransition(c2, c1, "a");
 		AutomatonPrinter.print(c, System.out);
@@ -193,6 +194,10 @@ public class IntersectionCheck {
 
 			System.out.println("run prefix:" + checker.getRunPrefix());
 			System.out.println("run loop:" + checker.getRunSuffix());
+		}
+		boolean flag = true;
+		if(flag) {
+			return ;
 		}
 		String file1 = "/home/liyong/workspace-neon/rabit/0.6.ba";
 		String file2 = "/home/liyong/workspace-neon/rabit/0.7.ba";

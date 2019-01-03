@@ -96,7 +96,7 @@ public class WordFinder {
 		while( !queue.isEmpty()) {
 			// have reached state t
 			if (visited.get(t.id)) {
-				continue;
+				break;
 			}
 			FAState cur = queue.poll();
 			Iterator<String> it_elem = cur.nextIt();
