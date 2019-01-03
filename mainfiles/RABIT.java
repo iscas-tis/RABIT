@@ -981,6 +981,7 @@ public class RABIT {
         }
     }
     
+    // may have bugs if we use -par and -fastc together
     public static boolean isIncludedPar(FiniteAutomaton A, FiniteAutomaton B){
         // first set all flags 
         Options.debug = false;

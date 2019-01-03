@@ -228,6 +228,7 @@ public class FiniteAutomaton{
 			while(input.ready()){
 				String s = input.readLine();
 				// Lines starting with % are comments and ignored.
+				if(s.isEmpty()) continue;
 				if(s.charAt(0)=='%') continue;
 				if(init)
 				{
