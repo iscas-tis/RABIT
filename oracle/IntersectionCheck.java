@@ -99,25 +99,26 @@ public class IntersectionCheck {
 				String label = iter.next();
 				Set<FAState> aSuccs = aState.getNext(label);
 				Set<FAState> bSuccs = bState.getNext(label);
-				if ((aSuccs != null) && (bSuccs != null)) {
-					for (FAState aSucc : aSuccs) {
-						for (FAState bSucc : bSuccs) {
-							Pair<Integer, Integer> newPair = new Pair<>(aSucc.id, bSucc.id);
-							cId = getStateId(aSucc.id, bSucc.id, b.states.size());
-							FAState stateSucc = cMap.get(cId);
-							// new state occurs
-							if (stateSucc == null) {
-								stateSucc = c.createState();
-								queue.add(newPair);
-								cMap.put(cId, stateSucc);
-								if (a.F.contains(aSucc)) {
-									this.f_1.add(stateSucc);
-								}
-								if (b.F.contains(bSucc)) {
-									this.f_2.add(stateSucc);
-								}
-							}
-							c.addTransition(cState, stateSucc, label);
+				if (aSuccs == null || bSuccs == null) {
+					continue;
+				}
+				for (FAState aSucc : aSuccs) {
+					for (FAState bSucc : bSuccs) {
+						Pair<Integer, Integer> newPair = new Pair<>(aSucc.id, bSucc.id);
+						cId = getStateId(aSucc.id, bSucc.id, b.states.size());
+						FAState stateSucc = cMap.get(cId);
+						// new state occurs
+						if (stateSucc == null) {
+							stateSucc = c.createState();
+							queue.add(newPair);
+							cMap.put(cId, stateSucc);
+						}
+						c.addTransition(cState, stateSucc, label);
+						if (a.F.contains(aSucc)) {
+							this.f_1.add(stateSucc);
+						}
+						if (b.F.contains(bSucc)) {
+							this.f_2.add(stateSucc);
 						}
 					}
 				}

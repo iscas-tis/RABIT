@@ -1,5 +1,5 @@
 /* Written by Yu-Fang Chen, Richard Mayr, and Chih-Duo Hong               */
-/* Copyright (c) 2011                  	                                  */
+/* Copyright (c) 2011                	                                  */
 /*                                                                        */
 /* This program is free software; you can redistribute it and/or modify   */
 /* it under the terms of the GNU General Public License as published by   */
@@ -1714,14 +1714,14 @@ public FiniteAutomaton acc_state_decomposition(FiniteAutomaton system2, int i){
 				drel=sim2.DelayedSimRelNBW(system, spec);
 				if(know_inclusion(system, spec, drel)) return(new AutomatonPreprocessingResult(system, spec, true));
 				brel=sim2.acceptance_blind_BackwardSimRelNBW(system, spec);
-				if(know_inclusion_bw(system, spec, brel)) return(new AutomatonPreprocessingResult(system, spec, true));
+				// This brel cannot witness Buchi incl. (unlike for NFA) since it is acceptance blind bw sim.
 				r2 = removed_trans_extra(system, spec, drel, brel);
 			    }
 			    else{
 				frel=sim2.ForwardSimRelNBW(system, spec);
 				if(know_inclusion(system, spec, frel)) return(new AutomatonPreprocessingResult(system, spec, true));
 				brel=sim2.acceptance_blind_BackwardSimRelNBW(system, spec);
-				if(know_inclusion_bw(system, spec, brel)) return(new AutomatonPreprocessingResult(system, spec, true));
+				// This brel cannot witness Buchi incl. (unlike for NFA) since it is acceptance blind bw sim.
 				r2 = removed_trans_extra(system, spec, frel, brel);
 			    }
 			    // Remove dead states again
@@ -1780,14 +1780,14 @@ public FiniteAutomaton acc_state_decomposition(FiniteAutomaton system2, int i){
 				bla_drel=sim2.BLADelayedSimRelNBW(system, spec, lookahead(system,spec));
 				if(know_inclusion(system, spec, bla_drel)) return(new AutomatonPreprocessingResult(system, spec, true));
 				brel=sim2.weak_BLABSimRelNBW(system, spec, lookahead(system,spec));
-				if(know_inclusion_bw(system, spec, brel)) return(new AutomatonPreprocessingResult(system, spec, true));
+				// This brel cannot witness Buchi incl. (unlike for NFA) since it is acceptance blind bw sim.
 				removed_trans_extra(system, spec, bla_drel, brel);
 			    }
 			    else{
 				bla_frel=sim2.BLASimRelNBW(system, spec, lookahead(system, spec));
 				if(know_inclusion(system, spec, bla_frel)) return(new AutomatonPreprocessingResult(system, spec, true));
 				brel=sim2.weak_BLABSimRelNBW(system, spec, lookahead(system,spec));
-				if(know_inclusion_bw(system, spec, brel)) return(new AutomatonPreprocessingResult(system, spec, true));
+				// This brel cannot witness Buchi incl. (unlike for NFA) since it is acceptance blind bw sim.
 				removed_trans_extra(system, spec, bla_frel, brel);
 			    }
 			    // Remove dead states again

@@ -1875,24 +1875,6 @@ public FiniteAutomaton acc_state_decomposition(FiniteAutomaton system2, int i){
 	    }
 	    else return(new AutomatonPreprocessingResult(system, spec, false));
 }
-   
-   public AutomatonPreprocessingResult Lightweight_Preprocess_Buchi2(FiniteAutomaton system, FiniteAutomaton spec){
-       Simulation sim2 = new Simulation();
-   Set<Pair<FAState, FAState>> frel, drel;
-   system = removeDead(system);
-   spec = removeDead(spec);
-   
-   frel = sim2.ForwardSimRelNBW(system, spec);
-   if(know_inclusion(system, spec, frel)) return(new AutomatonPreprocessingResult(system, spec, true));
-   system = quotient(system, frel);
-   spec = quotient(spec, frel);
-   
-   drel=sim2.DelayedSimRelNBW(system, spec);
-   if(know_inclusion(system, spec, drel)) return(new AutomatonPreprocessingResult(system, spec, true));
-   system=quotient(system, drel); 
-   spec=quotient(spec, drel);
-   return(new AutomatonPreprocessingResult(system, spec, false));
-  }
 
 
 
