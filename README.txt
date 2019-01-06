@@ -1,3 +1,10 @@
+New in version 2.4.5:
+
+- Fixed a bug in algorithms/ParallelMinimization.java 
+Preprocess_Buchi function that could cause false positives.
+(know_inclusion_bw was sometimes called with an unsuitable
+type of backward relation). 
+
 New in version 2.4.4:
 
 - Fixed a bug that could cause false negatives
@@ -33,11 +40,11 @@ The option -o allows to specify the output file name.
 
 This bundle contains several tools.
 
-1. RABIT version 2.4.4: 
+1. RABIT version 2.4.5: 
 A tool for checking language inclusion of nondeterministic Buchi automata (NBA)
 and nondeterministic finite-word automata (NFA).
 
-2. Reduce version 2.4.4:
+2. Reduce version 2.4.5:
 A tool for minimizing nondeterministic Buchi automata (NBA) and 
 nondeterministic finite-word automata (NFA).
 
