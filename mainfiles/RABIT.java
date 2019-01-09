@@ -772,6 +772,8 @@ public class RABIT {
 		    System.out.println("Aut A: # of Trans. "+aut1.trans+", # of States "+aut1.states.size()+".");
 		    System.out.println("Aut B: # of Trans. "+aut2.trans+", # of States "+aut2.states.size()+".");
 		}
+		System.out.println(isIncluded(aut1, aut2));
+		System.out.println(prefixStr + ", " + suffixStr);
 
 		// Distinguish different cases of inclusion checking
 
@@ -874,26 +876,26 @@ public class RABIT {
     public static boolean isIncluded(FiniteAutomaton A, FiniteAutomaton B) {
         // first set all flags 
         Options.debug = false;
-        Options.fast=true;
-        Options.backward=true;
-        Options.rd=true;
-        Options.fplus=true;
-        Options.SFS=true;
-        Options.qr=true;
-        Options.C1=true;
-        Options.EB=false; // difference to fast. EB must be false to report counterexamples
-        Options.CPT=true;
-        Options.superpruning=true;
-        Options.delayed=true;
-        Options.blamin=true;
-        Options.blasub=true;
-        Options.transient_pruning=true;
-        Options.jumpsim_quotienting=true;
+	    Options.fast=true;
+	    Options.backward=true;
+	    Options.rd=true;
+	    Options.fplus=true;
+	    Options.SFS=true;
+	    Options.qr=true;
+	    Options.C1=true;
+	    Options.EB=false; // difference to fast. EB must be false to report counterexamples
+	    Options.CPT=true;
+	    Options.superpruning=true;
+	    Options.delayed=true;
+	    Options.blamin=true;
+	    Options.blasub=true;
+	    Options.transient_pruning=true;
+	    Options.jumpsim_quotienting=true;
         Options.verbose=false; // set verbose to true to report counterexample
         
         // copy the automata
-        FiniteAutomaton aut1 = copyAutomaton(A);
-        FiniteAutomaton aut2 = copyAutomaton(B);
+        FiniteAutomaton aut1 = A; //copyAutomaton(A);
+        FiniteAutomaton aut2 = B; //copyAutomaton(B);
         
         // now we do the inclusion check
         Minimization Minimizer = new Minimization();
@@ -1004,8 +1006,8 @@ public class RABIT {
         Options.par = true;
         
         // copy the automata
-        FiniteAutomaton aut1 = copyAutomaton(A);
-        FiniteAutomaton aut2 = copyAutomaton(B);
+        FiniteAutomaton aut1 = A;
+        FiniteAutomaton aut2 = B;
         
         ParallelMinimization Minimizer = new ParallelMinimization();
         // First do a lightweight preprocessing
